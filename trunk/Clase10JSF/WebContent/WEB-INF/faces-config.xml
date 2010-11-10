@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<faces-config xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd"
+	version="2.0">
+	<application>
+		<resource-bundle>
+			<base-name>messages</base-name>
+			<var>msgs</var>
+		</resource-bundle>
+		<locale-config>
+			<default-locale>es</default-locale>
+			<supported-locale>en</supported-locale>
+		</locale-config>
+	</application>
+	<navigation-rule>
+		<from-view-id>*</from-view-id>
+		<navigation-case>
+			<from-outcome>salir</from-outcome>
+			<to-view-id>/inicio.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+
+	<navigation-rule>
+		<from-view-id>/inicio.xhtml</from-view-id>
+		<navigation-case>
+			<from-action>#{alumnosListener.mostrarAlumno}</from-action>
+			<from-outcome>show</from-outcome>
+			<to-view-id>/alumno.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-action>#{alumnosListener.nuevoAlumno}</from-action>
+			<from-outcome>show</from-outcome>
+			<to-view-id>/alumno.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-action>#{alumnosListener.eliminarAlumno}</from-action>
+			<from-outcome>show</from-outcome>
+			<to-view-id>/alumno.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-action>#{alumnosListener.modificarAlumno}</from-action>
+			<from-outcome>show</from-outcome>
+			<to-view-id>/alumno.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-action>#{alumnosListener.salir}</from-action>
+			<from-outcome>exit</from-outcome>
+			<to-view-id>/salida.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+
+</faces-config>
