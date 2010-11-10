@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:a4j="http://richfaces.org/a4j">
+
+<h:head>
+	<title>Listado Alumnos</title>
+</h:head>
+<h:body>
+	<f:view>
+		<h:form>
+			<rich:panel>
+				<rich:dataTable var="alu" value="#{alumnosView.lstAlumnos}">
+					<f:facet name="header">
+						<rich:columnGroup>
+							<rich:column>
+								<h:outputText value="#{msgs.cabeceranombre}" />
+							</rich:column>
+							<rich:column>
+								<h:outputText value="#{msgs.cabeceraapellido}" />
+							</rich:column>
+							<rich:column>
+								<h:outputText value="#{msgs.cabeceratelefono}" />
+							</rich:column>
+							<rich:column>
+								<h:outputText value="#{msgs.cabeceraemail}" />
+							</rich:column>
+							<rich:column>
+								<h:outputText value="#{msgs.cabeceraacciones}" />
+								<h:commandButton image="/imagenes/page_add.png"
+									action="#{alumnosListener.nuevoAlumno}" />
+							</rich:column>
+						</rich:columnGroup>
+					</f:facet>
+
+					<rich:column>
+						<h:outputText value="#{alu.nombre}" />
+					</rich:column>
+					<rich:column>
+						<h:outputText value="#{alu.apellido}" />
+					</rich:column>
+					<rich:column>
+						<h:outputText value="#{alu.email}" />
+					</rich:column>
+					<rich:column>
+						<h:outputText value="#{alu.telefono}" />
+					</rich:column>
+					<rich:column>
+						<h:panelGrid columns="3">
+							<rich:column>
+								<h:commandButton image="/imagenes/magnifier.png"
+									action="#{alumnosListener.mostrarAlumno}" />
+							</rich:column>
+							<rich:column>
+								<h:commandButton image="/imagenes/page_edit.png"
+									action="#{alumnosListener.modificarAlumno}" />
+							</rich:column>
+							<rich:column>
+								<h:commandButton image="/imagenes/page_delete.png"
+									action="#{alumnosListener.eliminarAlumno}" />
+							</rich:column>
+						</h:panelGrid>
+					</rich:column>
+				</rich:dataTable>
+			</rich:panel>
+<!--			<h:commandButton value="#{msgs.btnvolver}" -->
+<!--			action=""/>-->
+			<h:commandButton value="#{msgs.btnsalir}" 
+			action="salir" />
+		</h:form>
+	</f:view>
+</h:body>
+</html>
