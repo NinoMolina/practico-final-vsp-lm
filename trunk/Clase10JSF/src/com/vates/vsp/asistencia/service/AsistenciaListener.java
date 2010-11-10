@@ -1,11 +1,17 @@
 package com.vates.vsp.asistencia.service;
 
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
 
+import com.vates.vsp.alumnos.business.Clases;
 import com.vates.vsp.alumnos.view.AlumnosView;
 import com.vates.vsp.asistencia.view.AsistenciaView;
+import com.vates.vsp.commons.ListDataModel;
 
 
 @ManagedBean(name = "asistenciaListener")
@@ -24,6 +30,13 @@ public class AsistenciaListener {
 	}
 	
 	public String registrarAsistencias(){
+		if(asistenciaView.getLstClases()==null){
+			List<Clases> array=new ArrayList<Clases>();
+			asistenciaView.setLstClases(array);
+		}
+		Clases clase=new Clases(new Date(), "JSF 2.0");
+		clase.setId(1);
+		asistenciaView.getLstClases().add(clase);
 		return "registrarAsistencias";
 	}
 	
