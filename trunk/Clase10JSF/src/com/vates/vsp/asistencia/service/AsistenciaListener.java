@@ -9,9 +9,7 @@ import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
 
 import com.vates.vsp.alumnos.business.Clases;
-import com.vates.vsp.alumnos.view.AlumnosView;
 import com.vates.vsp.asistencia.view.AsistenciaView;
-import com.vates.vsp.commons.ListDataModel;
 
 
 @ManagedBean(name = "asistenciaListener")
