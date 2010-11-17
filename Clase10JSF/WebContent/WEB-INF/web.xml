@@ -38,4 +38,23 @@
 		<mime-type>text/css</mime-type>
 	</mime-mapping>
 	<!-- // RICHFACES -->
+	
+	<!-- SPRING -->
+
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>
+			/WEB-INF/config/spring/spring-config.xml,
+			/WEB-INF/config/spring/spring-persistence.xml
+		</param-value>
+	</context-param>
+
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+
+	<listener>
+		<listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
+	</listener>
+	<!-- // SPRING -->
 </web-app>
