@@ -3,7 +3,7 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <!-- Generated 06-oct-2010 18:59:18 by Hibernate Tools 3.3.0.GA -->
 <hibernate-mapping>
-    <class name="pojos.Alumnos" table="alumnos">
+    <class name="com.vates.vsp.alumnos.business.Alumnos" table="alumnos">
         <id name="id" type="java.lang.Integer">
             <column name="id_alumno" />
             <generator class="identity" />
@@ -24,7 +24,7 @@
             <key>
                 <column name="id_alumno" not-null="true" />
             </key>
-            <one-to-many class="pojos.Asistencia" />
+            <one-to-many class="com.vates.vsp.asistencia.business.Asistencia" />
         </set>
     </class>
 </hibernate-mapping>
