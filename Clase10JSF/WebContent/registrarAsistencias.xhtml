@@ -13,14 +13,15 @@
 <f:view>
 	<h:form>
 		<rich:panel>
-			<div align="center"><h:panelGrid columns="2">
+			<div align="left"><h:panelGrid columns="2">
 				<h:column>
 					<h:outputText value="#{msgs.seleccionarclase}" />
 				</h:column>
 				<h:column>
-					<h:selectOneMenu id="cmbClases" value="#{asistenciaView.claseSeleccionada.id}">
+					<h:selectOneMenu id="cmbClases"
+						value="#{asistenciaView.claseSeleccionada.id}">
 						<f:selectItems value="#{asistenciaView.lstClases}" var="clase"
-						itemLabel="#{clase.fecha}" itemValue="#{clase.id}"/>
+							itemLabel="#{clase.fecha}" itemValue="#{clase.id}" />
 					</h:selectOneMenu>
 				</h:column>
 				<h:column>
@@ -32,18 +33,23 @@
 			</h:panelGrid></div>
 		</rich:panel>
 
-
-
 		<rich:panel>
-			<div align="center"><h:panelGrid columns="2">
-				<h:column>
-					<h:selectManyCheckbox value="Alumno" />
-				</h:column>
+			<div align="left"><h:panelGrid columns="1">
 				<h:column>
 					<h:outputText value="Seleccione alumno" />
+					<h:selectManyCheckbox id="cbxAsistencia"
+						value="#{asistenciaView.lstAsistentes}" layout="pageDirection">
+						<f:selectItems value="#{alumnosView.lstAlumnos.wrappedData}"
+							var="alu" itemLabel="#{alu.nombre}, #{alu.apellido}"
+							itemValue="#{alu.id}" />
+					</h:selectManyCheckbox>
 				</h:column>
 			</h:panelGrid></div>
 		</rich:panel>
+
+		<h:commandButton value="#{msgs.btnsalir}" action="salir" />
+		<h:commandButton action="#{asistenciaListener.guardarAsistencia}"
+			value="#{msgs.btnguardar}" />
 	</h:form>
 </f:view>
 </body>

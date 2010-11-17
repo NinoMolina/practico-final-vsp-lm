@@ -18,6 +18,7 @@ public class AsistenciaView extends AbstractBaseView{
 	private Asistencia asistencia;
 	private ListDataModel<Alumnos> lstAlumnos;
 	private List<Clases> lstClases;
+	private List<Integer> lstAsistentes;
 	private Clases claseSeleccionada;
 	public Asistencia getAsistencia() {
 		return asistencia;
@@ -49,6 +50,14 @@ public class AsistenciaView extends AbstractBaseView{
 
 	public void setLstClases(List<Clases> lstClases) {
 		this.lstClases = lstClases;
+	}
+
+	public List<Integer> getLstAsistentes() {
+		return lstAsistentes;
+	}
+
+	public void setLstAsistentes(List<Integer> lstAsistentes) {
+		this.lstAsistentes = lstAsistentes;
 	}
 	
 	

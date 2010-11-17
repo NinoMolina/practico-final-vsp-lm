@@ -38,4 +38,8 @@ public class AsistenciaListener {
 		return "registrarAsistencias";
 	}
 	
+	public String guardarAsistencia(){
+		return "";
+	}
+	
 }
