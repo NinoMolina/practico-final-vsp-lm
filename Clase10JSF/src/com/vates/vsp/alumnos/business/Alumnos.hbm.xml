@@ -20,7 +20,7 @@
         <property name="telefono" type="java.lang.String">
             <column name="telefono" length="20" not-null="false" />
         </property>
-        <set name="asistencias" table="asistencia" inverse="true" lazy="true" fetch="select">
+        <set name="asistencias" table="asistencia" lazy="true" fetch="select">
             <key>
                 <column name="id_alumno" not-null="true" />
             </key>
