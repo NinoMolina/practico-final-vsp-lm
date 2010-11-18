@@ -16,6 +16,7 @@ public class AbstractBaseService extends HibernateDaoSupport {
 	public <T> T get(Class<T> type, Serializable id) {
 		return (T) this.getHibernateTemplate().get(type, id);
 	}
+	
 
 	@Override
 	protected HibernateTemplate createHibernateTemplate(
