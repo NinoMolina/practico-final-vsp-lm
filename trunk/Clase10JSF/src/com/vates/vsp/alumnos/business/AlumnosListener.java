@@ -2,11 +2,13 @@ package com.vates.vsp.alumnos.business;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
-import javax.faces.event.ActionEvent;
 
+import com.vates.vsp.alumnos.services.AlumnosService;
+import com.vates.vsp.alumnos.services.AlumnosServiceImpl;
 import com.vates.vsp.alumnos.view.AlumnosView;
 import com.vates.vsp.commons.ListDataModel;
 import com.vates.vsp.commons.UseCaseMode;
@@ -22,6 +24,17 @@ public class AlumnosListener {
 
 	@ManagedProperty(value = "#{alumnosView}")
 	private AlumnosView alumnosView;
+	@ManagedProperty(value = "#{alumnosService}")
+    private AlumnosService alumnosService;
+
+
+	public AlumnosService getAlumnosService() {
+		return alumnosService;
+	}
+
+	public void setAlumnosService(AlumnosService alumnosService) {
+		this.alumnosService = alumnosService;
+	}
 
 	public AlumnosView getAlumnosView() {
 		return alumnosView;
@@ -65,15 +78,20 @@ public class AlumnosListener {
 		return "alumno";
 	}
 	public String listarAlumnos(){
-		if(alumnosView.getLstAlumnos()==null){	
-			List<Alumnos> array=new ArrayList<Alumnos>();
-			ListDataModel<Alumnos> list=new ListDataModel<Alumnos>(array);
-			alumnosView.setLstAlumnos(list);
-		}
-		List<Alumnos> array=alumnosView.getLstAlumnos().getWrappedData();
-		array.add(new Alumnos("YO", "YO"));
-		ListDataModel<Alumnos> list=new ListDataModel<Alumnos>(array);
-		alumnosView.setLstAlumnos(list);
+		
+//		if(alumnosView.getLstAlumnos()==null){	
+//			List<Alumnos> array=new ArrayList<Alumnos>();
+//			ListDataModel<Alumnos> list=new ListDataModel<Alumnos>();
+//			alumnosView.setLstAlumnos(list);
+//		}
+//		List<Alumnos> array=alumnosView.getLstAlumnos().getWrappedData();
+//		array.add(new Alumnos("YO", "YO"));
+		alumnosView.setUseCaseMode(UseCaseMode.CONSULTA);
+        List<Alumnos> resultado = alumnosService.getAllAlumnos();
+        if(resultado==null){
+        	resultado=new ArrayList<Alumnos>();
+        }
+        alumnosView.setLstAlumnos(new ListDataModel<Alumnos>(resultado));
 		return "listadoAlumnos";
 	}
 
