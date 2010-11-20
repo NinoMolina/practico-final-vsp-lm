@@ -22,18 +22,17 @@
 				</h:column>
 				<h:column>
 					<h:selectOneMenu id="cmbClases"
-						value="#{asistenciaView.claseSeleccionada.id}">
+						value="#{asistenciaView.claseSeleccionada}">
 						<f:selectItems value="#{asistenciaView.lstClases}" var="clase"
 							itemLabel="#{clase.fecha}" itemValue="#{clase.id}" />
-						<f:ajax execute="@this" event="change" render="tema"
-							listener="#{asistenciaListener.setClase}" />
 					</h:selectOneMenu>
 				</h:column>
 				<h:column>
 					<h:outputText value="#{msgs.temadia}" />
 				</h:column>
 				<h:column>
-					<h:outputText id="tema" value="#{asistenciaView.claseSeleccionada.tema}" />
+					<h:outputText id="tema"
+						value="..." />
 				</h:column>
 			</h:panelGrid></div>
 		</rich:panel>
@@ -54,7 +53,7 @@
 		<h:commandButton value="#{msgs.btnsalir}" action="salir"
 			immediate="true" />
 		<h:commandButton action="#{asistenciaListener.guardarAsistencia}"
-			value="#{msgs.btnguardar}" immediate="true" />
+			value="#{msgs.btnguardar}" />
 	</h:form>
 </f:view>
 </body>

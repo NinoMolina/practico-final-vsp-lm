@@ -6,7 +6,6 @@ import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
-import javax.faces.event.AjaxBehaviorEvent;
 
 import com.vates.vsp.alumnos.business.Alumnos;
 import com.vates.vsp.alumnos.business.Clases;
@@ -73,26 +72,22 @@ public class AsistenciaListener {
 		return "registrarAsistencias";
 	}
 
-	public void setClase(AjaxBehaviorEvent event) {
-		Clases claseSeleccionada = asistenciaView.getClaseSeleccionada();
-		asistenciaView.setClaseSeleccionada(clasesService
-				.getClases(claseSeleccionada.getId()));
-	}
-
 	public void guardarAsistencia() {
 
 		try {
 			List<Alumnos> lstAlumnos = asistenciaView.getLstAlumnos();
 			List<Integer> lstAsistentes = asistenciaView.getLstAsistentes();
-			Clases claseSeleccionada = asistenciaView.getClaseSeleccionada();
+			Integer idClaseSeleccionada = asistenciaView.getClaseSeleccionada();
+			Clases claseSeleccionada = clasesService
+					.getClases(idClaseSeleccionada);
 			List<Asistencia> lstAsistencia = new ArrayList<Asistencia>();
 			for (Alumnos alumno : lstAlumnos) {
 				if (lstAsistentes.contains(alumno.getId())) {
-					lstAsistencia.add(new Asistencia(alumno,
-							claseSeleccionada, 1));
+					lstAsistencia.add(new Asistencia(alumno, claseSeleccionada,
+							1));
 				} else {
-					lstAsistencia.add(new Asistencia(alumno,
-							claseSeleccionada, 0));
+					lstAsistencia.add(new Asistencia(alumno, claseSeleccionada,
+							0));
 				}
 			}
 			asistenciaService.guardarAllAsistencia(lstAsistencia);
