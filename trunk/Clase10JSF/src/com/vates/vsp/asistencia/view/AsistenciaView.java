@@ -16,7 +16,7 @@ import com.vates.vsp.commons.ListDataModel;
 public class AsistenciaView extends AbstractBaseView{
 
 	private Asistencia asistencia;
-	private ListDataModel<Alumnos> lstAlumnos;
+	private List<Alumnos> lstAlumnos;
 	private List<Clases> lstClases;
 	private List<Integer> lstAsistentes;
 	private Clases claseSeleccionada;
@@ -36,11 +36,11 @@ public class AsistenciaView extends AbstractBaseView{
 		this.asistencia = asistencia;
 	}
 
-	public ListDataModel<Alumnos> getLstAlumnos() {
+	public List<Alumnos> getLstAlumnos() {
 		return lstAlumnos;
 	}
 
-	public void setLstAlumnos(ListDataModel<Alumnos> lstAlumnos) {
+	public void setLstAlumnos(List<Alumnos> lstAlumnos) {
 		this.lstAlumnos = lstAlumnos;
 	}
 

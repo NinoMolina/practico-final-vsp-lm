@@ -10,6 +10,9 @@
 	<title>Registrar Asistencia</title>
 </h:head>
 <body>
+<div align="center">
+<h2>Registrar Asistencia</h2>
+</div>
 <f:view>
 	<h:form>
 		<rich:panel>
@@ -22,13 +25,15 @@
 						value="#{asistenciaView.claseSeleccionada.id}">
 						<f:selectItems value="#{asistenciaView.lstClases}" var="clase"
 							itemLabel="#{clase.fecha}" itemValue="#{clase.id}" />
+						<f:ajax execute="@this" event="change" render="tema"
+							listener="#{asistenciaListener.setClase}" />
 					</h:selectOneMenu>
 				</h:column>
 				<h:column>
 					<h:outputText value="#{msgs.temadia}" />
 				</h:column>
 				<h:column>
-					<h:outputText value="por ajax" />
+					<h:outputText id="tema" value="#{asistenciaView.claseSeleccionada.tema}" />
 				</h:column>
 			</h:panelGrid></div>
 		</rich:panel>
@@ -39,17 +44,17 @@
 					<h:outputText value="Seleccione alumno" />
 					<h:selectManyCheckbox id="cbxAsistencia"
 						value="#{asistenciaView.lstAsistentes}" layout="pageDirection">
-						<f:selectItems value="#{alumnosView.lstAlumnos.wrappedData}"
-							var="alu" itemLabel="#{alu.nombre}, #{alu.apellido}"
-							itemValue="#{alu.id}" />
+						<f:selectItems value="#{asistenciaView.lstAlumnos}" var="alu"
+							itemLabel="#{alu.nombre}, #{alu.apellido}" itemValue="#{alu.id}" />
 					</h:selectManyCheckbox>
 				</h:column>
 			</h:panelGrid></div>
 		</rich:panel>
 
-		<h:commandButton value="#{msgs.btnsalir}" action="salir" />
+		<h:commandButton value="#{msgs.btnsalir}" action="salir"
+			immediate="true" />
 		<h:commandButton action="#{asistenciaListener.guardarAsistencia}"
-			value="#{msgs.btnguardar}" />
+			value="#{msgs.btnguardar}" immediate="true" />
 	</h:form>
 </f:view>
 </body>

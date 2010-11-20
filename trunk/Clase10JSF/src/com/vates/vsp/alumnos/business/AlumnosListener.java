@@ -57,12 +57,14 @@ public class AlumnosListener {
 	}
 	
 	public String guardarAlumno(){
-		if(alumnosView.getLstAlumnos()==null){	
-			List<Alumnos> array=new ArrayList<Alumnos>();
-			ListDataModel<Alumnos> list=new ListDataModel<Alumnos>(array);
-			alumnosView.setLstAlumnos(list);
-		}
-		alumnosView.getLstAlumnos().getWrappedData().add(new Alumnos());
+//		if(alumnosView.getLstAlumnos()==null){	
+//			List<Alumnos> array=new ArrayList<Alumnos>();
+//			ListDataModel<Alumnos> list=new ListDataModel<Alumnos>(array);
+//			alumnosView.setLstAlumnos(list);
+//		}
+//		alumnosView.getLstAlumnos().getWrappedData().add(new Alumnos());
+//		return null;
+		alumnosService.guardarAlumno(alumnosView.getAlumno());
 		return null;
 	}
 	
@@ -95,7 +97,10 @@ public class AlumnosListener {
 		return "listadoAlumnos";
 	}
 
-
+	public String deleteAlumno(){
+		alumnosService.deleteAlumno(alumnosView.getAlumno());
+		return null;
+	}
 	public String salir() {
 		return "exit";
 	}
