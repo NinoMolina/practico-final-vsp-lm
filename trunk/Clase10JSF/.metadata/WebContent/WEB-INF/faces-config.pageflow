@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf12877868550690" configfile="/Clase10JSF/WebContent/WEB-INF/faces-config.xml">
-  <nodes xsi:type="pageflow:PFPage" name="inicio.xhtml" x="338" y="178" id="pf12880426496780" referenceLink="//@navigationRule.0/@navigationCase.0/@toViewId|" outlinks="pf12880426496781 pf12880426496782 pf12886477723880 pf12889996258312 pf12889996258313" inlinks="pf12892513020165" path="/inicio.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="inicio.xhtml" x="338" y="178" id="pf12880426496780" referenceLink="//@navigationRule.1/@fromViewId|" outlinks="pf12880426496781 pf12880426496782 pf12886477723880 pf12889996258312 pf12889996258313" inlinks="pf12892513020165" path="/inicio.xhtml"/>
   <nodes xsi:type="pageflow:PFPage" name="alumno.xhtml" x="554" y="178" id="pf12880426496783" referenceLink="//@navigationRule.1/@navigationCase.3/@toViewId|" inlinks="pf12880426496781 pf12886477723880 pf12889996258312 pf12889996258313" path="/alumno.xhtml"/>
   <nodes xsi:type="pageflow:PFPage" name="salida.xhtml" x="554" y="562" id="pf12880426496784" referenceLink="//@navigationRule.1/@navigationCase.4/@toViewId|" inlinks="pf12880426496782" path="/salida.xhtml"/>
   <nodes xsi:type="pageflow:PFPage" name="*" id="pf12892513020166" referenceLink="//@navigationRule.0/@fromViewId|" outlinks="pf12892513020165" path="*"/>
