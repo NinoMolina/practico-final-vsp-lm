@@ -25,9 +25,9 @@
 	</servlet-mapping>
 	<context-param>
 		<param-name>javax.faces.CONFIG_FILES</param-name>
-		<param-value>/WEB-INF/faces-config.xml,
-			/WEB-INF/faces-validators.xml,
-			/WEB-INF/faces-converters.xml</param-value>
+		<param-value>/WEB-INF/config/faces/faces-config.xml,
+			/WEB-INF/config/faces/faces-validators.xml,
+			/WEB-INF/config/faces/faces-converters.xml</param-value>
 	</context-param>
 	<!-- RICHFACES -->
 	<context-param>
