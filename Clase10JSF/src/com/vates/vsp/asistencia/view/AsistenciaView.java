@@ -19,16 +19,16 @@ public class AsistenciaView extends AbstractBaseView{
 	private List<Alumnos> lstAlumnos;
 	private List<Clases> lstClases;
 	private List<Integer> lstAsistentes;
-	private Integer claseSeleccionada;
+	private Clases claseSeleccionada;
 	public Asistencia getAsistencia() {
 		return asistencia;
 	}
 
-	public Integer getClaseSeleccionada() {
+	public Clases getClaseSeleccionada() {
 		return claseSeleccionada;
 	}
 
-	public void setClaseSeleccionada(Integer claseSeleccionada) {
+	public void setClaseSeleccionada(Clases claseSeleccionada) {
 		this.claseSeleccionada = claseSeleccionada;
 	}
 

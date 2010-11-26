@@ -7,11 +7,11 @@
 	xmlns:rich="http://richfaces.org/rich"
 	xmlns:a4j="http://richfaces.org/a4j">
 <h:head>
-	<title>Registrar Asistencia</title>
+	<title><h:outputText value="#{msgs.registrarasistencias}" /></title>
 </h:head>
 <body>
 <div align="center">
-<h2>Registrar Asistencia</h2>
+<h2><h:outputText value="#{msgs.registrarasistencias}" /></h2>
 </div>
 <f:view>
 	<h:form>
@@ -22,17 +22,18 @@
 				</h:column>
 				<h:column>
 					<h:selectOneMenu id="cmbClases"
-						value="#{asistenciaView.claseSeleccionada}">
+						value="#{asistenciaView.claseSeleccionada.id}">
 						<f:selectItems value="#{asistenciaView.lstClases}" var="clase"
 							itemLabel="#{clase.fecha}" itemValue="#{clase.id}" />
+						<f:ajax execute="@this" event="change" render="tema"
+							listener="#{asistenciaListener.setClaseSeleccionada}" />
 					</h:selectOneMenu>
 				</h:column>
 				<h:column>
 					<h:outputText value="#{msgs.temadia}" />
 				</h:column>
 				<h:column>
-					<h:outputText id="tema"
-						value="..." />
+					<h:outputText id="tema" value="#{asistenciaView.claseSeleccionada.tema}" />
 				</h:column>
 			</h:panelGrid></div>
 		</rich:panel>
@@ -44,7 +45,7 @@
 					<h:selectManyCheckbox id="cbxAsistencia"
 						value="#{asistenciaView.lstAsistentes}" layout="pageDirection">
 						<f:selectItems value="#{asistenciaView.lstAlumnos}" var="alu"
-							itemLabel="#{alu.nombre}, #{alu.apellido}" itemValue="#{alu.id}" />
+							itemLabel="#{alu.apellido}, #{alu.nombre}" itemValue="#{alu.id}" />
 					</h:selectManyCheckbox>
 				</h:column>
 			</h:panelGrid></div>

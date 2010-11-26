@@ -11,10 +11,12 @@
 			<var>msgs</var>
 		</resource-bundle>
 		<locale-config>
-			<default-locale>es</default-locale>
-			<supported-locale>en</supported-locale>
+			<default-locale>en</default-locale>
+			<supported-locale>es</supported-locale>
 		</locale-config>
 	</application>
+	
+	<!-- REGLAS	DE NAVEGACION -->
 	<navigation-rule>
 		<from-view-id>*</from-view-id>
 		<navigation-case>
@@ -51,5 +53,5 @@
 			<to-view-id>/salida.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
-
+	<!-- FIN REGLAS	DE NAVEGACION -->
 </faces-config>

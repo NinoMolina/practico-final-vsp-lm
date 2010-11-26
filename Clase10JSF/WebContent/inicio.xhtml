@@ -9,11 +9,11 @@
 	xmlns:a4j="http://richfaces.org/a4j">
 
 <h:head>
-	<title>Inicio</title>
+	<title><h:outputText value="#{msgs.inicio}"/></title>
 </h:head>
 <h:body>
 	<f:view>
-		<h2>Ejemplo Práctico JSF 2.0</h2>
+		<h2><h:outputText value="#{msgs.ejemploinicio}"/></h2>
 		<h:form>
 			<rich:panel>
 				<div align="center"><h:panelGrid columns="2">
@@ -26,13 +26,13 @@
 							action="#{asistenciaListener.registrarAsistencias}" />
 					</h:column>
 					<h:column>
-						<h:outputText value="Listado de Alumnos"></h:outputText>
+						<h:outputText value="#{msgs.listaralumnos}"></h:outputText>
 					</h:column>
 					<h:column>
-						<h:outputText value="Registrar Asistecias"></h:outputText>
+						<h:outputText value="#{msgs.registrarasistencias}"></h:outputText>
 					</h:column>
 					<h:column>
-						<h:commandButton value="Salir" action="#{alumnosListener.salir}" />
+						<h:commandButton value="#{msgs.btnsalir}" action="#{alumnosListener.salir}" />
 					</h:column>
 					<h:column>
 					</h:column>
