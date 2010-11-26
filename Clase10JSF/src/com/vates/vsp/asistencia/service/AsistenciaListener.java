@@ -1,6 +1,7 @@
 package com.vates.vsp.asistencia.service;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import javax.faces.bean.ManagedBean;
@@ -101,9 +102,9 @@ public class AsistenciaListener {
 	
 	private boolean contieneAlumno(List<Integer> lista, Integer id){
 		if(id==null)return false;
-		for (Integer valor : lista) {
-			if(valor==id)
-				return true;
+		Iterator it=lista.iterator();
+		for (Iterator iterator = lista.iterator(); iterator.hasNext();) {
+			Integer integer = (Integer) iterator.next();	
 		}
 		return false;
 	}
