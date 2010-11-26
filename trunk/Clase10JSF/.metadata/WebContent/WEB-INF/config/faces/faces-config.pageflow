@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf12908067550860" configfile="/Clase10JSF/WebContent/WEB-INF/config/faces/faces-config.xml">
+  <nodes xsi:type="pageflow:PFPage" name="*" id="pf129080710551211" referenceLink="//@navigationRule.0/@fromViewId|" outlinks="pf129080710551212" path="*"/>
+  <nodes xsi:type="pageflow:PFPage" name="inicio.xhtml" id="pf129080710551213" referenceLink="//@navigationRule.1/@fromViewId|" outlinks="pf129080710551214 pf129080710551215 pf129080710551216 pf129080710551217 pf129080710551218" inlinks="pf129080710551212" path="/inicio.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="alumno.xhtml" id="pf129080710551219" referenceLink="//@navigationRule.1/@navigationCase.3/@toViewId|" inlinks="pf129080710551214 pf129080710551215 pf129080710551216 pf129080710551217" path="/alumno.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="salida.xhtml" id="pf129080710551220" referenceLink="//@navigationRule.1/@navigationCase.4/@toViewId|" inlinks="pf129080710551218" path="/salida.xhtml"/>
+  <links id="pf129080710551212" target="pf129080710551213" source="pf129080710551211" outcome="salir"/>
+  <links id="pf129080710551214" target="pf129080710551219" source="pf129080710551213" outcome="show" fromaction="#{alumnosListener.mostrarAlumno}"/>
+  <links id="pf129080710551215" target="pf129080710551219" source="pf129080710551213" outcome="show" fromaction="#{alumnosListener.nuevoAlumno}"/>
+  <links id="pf129080710551216" target="pf129080710551219" source="pf129080710551213" outcome="show" fromaction="#{alumnosListener.eliminarAlumno}"/>
+  <links id="pf129080710551217" target="pf129080710551219" source="pf129080710551213" outcome="show" fromaction="#{alumnosListener.modificarAlumno}"/>
+  <links id="pf129080710551218" target="pf129080710551220" source="pf129080710551213" outcome="exit" fromaction="#{alumnosListener.salir}"/>
+</pageflow:Pageflow>

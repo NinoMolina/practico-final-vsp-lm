@@ -6,6 +6,7 @@ import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
+import javax.faces.event.AjaxBehaviorEvent;
 
 import com.vates.vsp.alumnos.business.Alumnos;
 import com.vates.vsp.alumnos.business.Clases;
@@ -13,6 +14,7 @@ import com.vates.vsp.alumnos.services.AlumnosService;
 import com.vates.vsp.asistencia.business.Asistencia;
 import com.vates.vsp.asistencia.view.AsistenciaView;
 import com.vates.vsp.clases.service.ClasesService;
+import com.vates.vsp.commons.UseCaseMode;
 
 @ManagedBean(name = "asistenciaListener")
 @SessionScoped
@@ -67,6 +69,9 @@ public class AsistenciaListener {
 		// Clases clase=new Clases(new Date(), "JSF 2.0");
 		// clase.setId(1);
 		// asistenciaView.getLstClases().add(clase);
+		asistenciaView.setUseCaseMode(UseCaseMode.NUEVO);
+		asistenciaView.setClaseSeleccionada(new Clases());
+		asistenciaView.setLstAsistentes(new ArrayList<Integer>());
 		asistenciaView.setLstAlumnos(alumnosService.getAllAlumnos());
 		asistenciaView.setLstClases(clasesService.getAllClases());
 		return "registrarAsistencias";
@@ -77,12 +82,10 @@ public class AsistenciaListener {
 		try {
 			List<Alumnos> lstAlumnos = asistenciaView.getLstAlumnos();
 			List<Integer> lstAsistentes = asistenciaView.getLstAsistentes();
-			Integer idClaseSeleccionada = asistenciaView.getClaseSeleccionada();
-			Clases claseSeleccionada = clasesService
-					.getClases(idClaseSeleccionada);
+			Clases claseSeleccionada = asistenciaView.getClaseSeleccionada();
 			List<Asistencia> lstAsistencia = new ArrayList<Asistencia>();
 			for (Alumnos alumno : lstAlumnos) {
-				if (lstAsistentes.contains(alumno.getId())) {
+				if (contieneAlumno(lstAsistentes,alumno.getId())) {
 					lstAsistencia.add(new Asistencia(alumno, claseSeleccionada,
 							1));
 				} else {
@@ -94,7 +97,21 @@ public class AsistenciaListener {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
+	
+	private boolean contieneAlumno(List<Integer> lista, Integer id){
+		if(id==null)return false;
+		for (Integer valor : lista) {
+			if(valor==id)
+				return true;
+		}
+		return false;
+	}
 
+	public void setClaseSeleccionada(AjaxBehaviorEvent event) {
+		Clases claseSeleccionada = asistenciaView.getClaseSeleccionada();
+		asistenciaView.setClaseSeleccionada(clasesService
+				.getClases(claseSeleccionada.getId()));
 	}
 
 }
