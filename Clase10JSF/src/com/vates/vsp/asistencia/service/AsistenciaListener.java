@@ -86,7 +86,7 @@ public class AsistenciaListener {
 			Clases claseSeleccionada = asistenciaView.getClaseSeleccionada();
 			List<Asistencia> lstAsistencia = new ArrayList<Asistencia>();
 			for (Alumnos alumno : lstAlumnos) {
-				if (contieneAlumno(lstAsistentes,alumno.getId())) {
+				if (lstAsistentes.contains(alumno.getId())) {
 					lstAsistencia.add(new Asistencia(alumno, claseSeleccionada,
 							1));
 				} else {
@@ -100,14 +100,17 @@ public class AsistenciaListener {
 		}
 	}
 	
-	private boolean contieneAlumno(List<Integer> lista, Integer id){
-		if(id==null)return false;
-		Iterator it=lista.iterator();
-		for (Iterator iterator = lista.iterator(); iterator.hasNext();) {
-			Integer integer = (Integer) iterator.next();	
-		}
-		return false;
-	}
+//	@SuppressWarnings({ "rawtypes" })
+//	private boolean contieneAlumno(List<Integer> lista, Integer id){
+//		if(id==null)return false;
+//		for (Iterator iterator = lista.iterator(); iterator.hasNext();) {
+//			Integer integer = Integer.valueOf(String.valueOf(iterator.next()));
+//			if(integer.intValue()==id.intValue()){
+//				return true;
+//			}
+//		}
+//		return false;
+//	}
 
 	public void setClaseSeleccionada(AjaxBehaviorEvent event) {
 		Clases claseSeleccionada = asistenciaView.getClaseSeleccionada();
