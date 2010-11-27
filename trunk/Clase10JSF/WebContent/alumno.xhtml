@@ -18,7 +18,8 @@
 	<f:view>
 		<h:form>
 			<h3><h:outputText value="#{msgs.datosalumno}" /></h3>
-			<h3><h:outputText value="#{msgs.modo}: " /><h:outputText value="#{alumnosView.useCaseMode}" /></h3>
+			<h3><h:outputText value="#{msgs.modo}: " /><h:outputText
+				value="#{alumnosView.useCaseMode}" /></h3>
 			<rich:panel>
 				<h:panelGrid columns="2">
 					<h:column>
@@ -61,7 +62,9 @@
 						<h:outputText value="#{alumnosView.alumno.email}"
 							rendered="#{alumnosView.modoConsulta or alumnosView.modoEliminacion}" />
 						<h:inputText value="#{alumnosView.alumno.email}"
-							rendered="#{alumnosView.modoNuevo or alumnosView.modoModificacion}" />
+							rendered="#{alumnosView.modoNuevo or alumnosView.modoModificacion}">
+							<f:validator validatorId="validateEmail" />
+						</h:inputText>
 					</h:column>
 
 					<h:column>

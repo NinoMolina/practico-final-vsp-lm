@@ -5,7 +5,6 @@ package com.vates.vsp.alumnos.business;
 
 import java.util.HashSet;
 import java.util.Set;
-
 import com.vates.vsp.asistencia.business.Asistencia;
 
 /**
@@ -16,7 +15,8 @@ public class Alumnos implements java.io.Serializable {
 	private Integer id;
 	private String apellido;
 	private String nombre;
-	private String email,telefono;
+	private String email;
+	private String telefono;
 	private Set<Asistencia> asistencias = new HashSet<Asistencia>(0);
 
 	public Alumnos() {

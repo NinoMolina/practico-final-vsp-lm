@@ -33,7 +33,8 @@
 					<h:outputText value="#{msgs.temadia}" />
 				</h:column>
 				<h:column>
-					<h:outputText id="tema" value="#{asistenciaView.claseSeleccionada.tema}" />
+					<h:outputText id="tema"
+						value="#{asistenciaView.claseSeleccionada.tema}" />
 				</h:column>
 			</h:panelGrid></div>
 		</rich:panel>
@@ -43,7 +44,8 @@
 				<h:column>
 					<h:outputText value="Seleccione alumno" />
 					<h:selectManyCheckbox id="cbxAsistencia"
-						value="#{asistenciaView.lstAsistentes}" layout="pageDirection">
+						value="#{asistenciaView.lstAsistentes}" layout="pageDirection"
+						converter="convertToInteger">
 						<f:selectItems value="#{asistenciaView.lstAlumnos}" var="alu"
 							itemLabel="#{alu.apellido}, #{alu.nombre}" itemValue="#{alu.id}" />
 					</h:selectManyCheckbox>
