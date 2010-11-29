@@ -20,6 +20,8 @@
 			<h3><h:outputText value="#{msgs.datosalumno}" /></h3>
 			<h3><h:outputText value="#{msgs.modo}: " /><h:outputText
 				value="#{alumnosView.useCaseMode}" /></h3>
+			<div align="left" style="font-style: italic; color: red;"><h:messages
+				styleClass="error" /></div>
 			<rich:panel>
 				<h:panelGrid columns="2">
 					<h:column>
@@ -38,7 +40,9 @@
 							rendered="#{alumnosView.modoConsulta or alumnosView.modoEliminacion}" />
 						<h:inputText value="#{alumnosView.alumno.nombre}"
 							rendered="#{alumnosView.modoNuevo or alumnosView.modoModificacion}"
-							required="true" />
+							required="true" id="nombre"
+							validatorMessage="El campo 'Nombre' es incorrecto"
+							requiredMessage="Debe ingresar un 'Nombre'" />
 					</h:column>
 
 					<h:column>
@@ -48,7 +52,10 @@
 						<h:outputText value="#{alumnosView.alumno.apellido}"
 							rendered="#{alumnosView.modoConsulta or alumnosView.modoEliminacion}" />
 						<h:inputText value="#{alumnosView.alumno.apellido}"
-							rendered="#{alumnosView.modoNuevo or alumnosView.modoModificacion}" />
+							rendered="#{alumnosView.modoNuevo or alumnosView.modoModificacion}"
+							required="true" id="apellido"
+							validatorMessage="El campo 'Apellido' es incorrecto"
+							requiredMessage="Debe ingresar un 'Apellido'" />
 					</h:column>
 
 					<h:column>
@@ -58,7 +65,8 @@
 						<h:outputText value="#{alumnosView.alumno.email}"
 							rendered="#{alumnosView.modoConsulta or alumnosView.modoEliminacion}" />
 						<h:inputText value="#{alumnosView.alumno.email}"
-							rendered="#{alumnosView.modoNuevo or alumnosView.modoModificacion}">
+							rendered="#{alumnosView.modoNuevo or alumnosView.modoModificacion}"
+							id="email">
 							<f:validator validatorId="validateEmail" />
 						</h:inputText>
 					</h:column>
@@ -90,7 +98,7 @@
 						rendered="#{alumnosView.modoEliminacion}" />
 				</h:column>
 				<h:column>
-					<h:commandButton action="#{alumnosListener.volverListadoAlumnos}"
+					<h:commandButton action="#{alumnosListener.listarAlumnos}"
 						value="#{msgs.btnvolver}" immediate="true" />
 				</h:column>
 			</h:panelGrid>
