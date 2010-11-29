@@ -10,8 +10,8 @@ import javax.faces.validator.FacesValidator;
 import javax.faces.validator.Validator;
 import javax.faces.validator.ValidatorException;
 
-@FacesValidator(value="validateEmail")
-public class ValidateEmail implements Validator{
+@FacesValidator(value = "validateEmail")
+public class ValidateEmail implements Validator {
 
 	private static final String EMAIL_PATTERN = "^[_A-Za-z0-9-]+(\\."
 			+ "[_A-Za-z0-9-]+)*@[A-Za-z0-9]+(\\.[A-Za-z0-9]+)*"
@@ -31,8 +31,8 @@ public class ValidateEmail implements Validator{
 		matcher = pattern.matcher(value.toString());
 		if (!matcher.matches()) {
 
-			FacesMessage msg = new FacesMessage("E-mail validation failed.",
-					"Invalid E-mail format.");
+			FacesMessage msg = new FacesMessage("E-mail no válido.",
+					"formato de E-mail no válido.");
 			msg.setSeverity(FacesMessage.SEVERITY_ERROR);
 			throw new ValidatorException(msg);
 
