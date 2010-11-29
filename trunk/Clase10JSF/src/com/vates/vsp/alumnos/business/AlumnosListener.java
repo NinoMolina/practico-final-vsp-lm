@@ -104,4 +104,8 @@ public class AlumnosListener {
 	public String salir() {
 		return "exit";
 	}
+	
+	public String volverListadoAlumnos(){
+		return "listadoAlumnos";
+	}
 }
