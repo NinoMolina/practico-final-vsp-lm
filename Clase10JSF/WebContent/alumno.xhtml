@@ -28,10 +28,6 @@
 					<h:column>
 						<h:outputText value="#{alumnosView.alumno.id}"
 							rendered="#{alumnosView.modoConsulta or alumnosView.modoEliminacion or alumnosView.modoModificacion}" />
-						<!--						<h:inputText value="#{alumnosView.alumno.id}"-->
-						<!--							rendered="#{alumnosView.modoNuevo}">-->
-						<!--							<f:validateLength minimum="1" maximum="5" />-->
-						<!--						</h:inputText>-->
 					</h:column>
 
 					<h:column>
@@ -78,55 +74,26 @@
 					</h:column>
 				</h:panelGrid>
 			</rich:panel>
-			<h:commandButton action="#{alumnosListener.guardarAlumno}"
-				value="#{msgs.btnguardar}" rendered="#{alumnosView.modoNuevo}" />
-			<h:commandButton action="#{alumnosListener.guardarAlumno}"
-				value="#{msgs.btnguardar}"
-				rendered="#{alumnosView.modoModificacion}" />
-			<h:commandButton action="#{alumnosListener.deleteAlumno}"
-				value="#{msgs.btneliminar}"
-				rendered="#{alumnosView.modoEliminacion}" />
-			<h:commandButton action="salir" value="#{msgs.btnvolver}"
-				immediate="true" />
-			<h:commandButton action="salir" value="#{msgs.btnsalir}"
-				immediate="true" />
-			<!--			<rich:dataTable var="alu" value="#{alumnosView.lstAlumnos}"-->
-			<!--				rendered="#{alumnosView.modoNuevo}" border="1">-->
-			<!--				<f:facet name="header">-->
-			<!--					<h:panelGrid columns="5">-->
-			<!--						<rich:column>-->
-			<!--							<h:outputText value="ID" />-->
-			<!--						</rich:column>-->
-			<!--						<rich:column>-->
-			<!--							<h:outputText value="NOMBRE" />-->
-			<!--						</rich:column>-->
-			<!--						<rich:column>-->
-			<!--							<h:outputText value="APELLIDO" />-->
-			<!--						</rich:column>-->
-			<!--						<rich:column>-->
-			<!--							<h:outputText value="EMAIL" />-->
-			<!--						</rich:column>-->
-			<!--						<rich:column>-->
-			<!--							<h:outputText value="TELEFONO" />-->
-			<!--						</rich:column>-->
-			<!--					</h:panelGrid>-->
-			<!--				</f:facet>-->
-			<!--				<rich:column>-->
-			<!--					<h:outputText value="#{alu.id}" />-->
-			<!--				</rich:column>-->
-			<!--				<rich:column>-->
-			<!--					<h:outputText value="#{alu.nombre}" />-->
-			<!--				</rich:column>-->
-			<!--				<rich:column>-->
-			<!--					<h:outputText value="#{alu.apellido}" />-->
-			<!--				</rich:column>-->
-			<!--				<rich:column>-->
-			<!--					<h:outputText value="#{alu.email}" />-->
-			<!--				</rich:column>-->
-			<!--				<rich:column>-->
-			<!--					<h:outputText value="#{alu.telefono}" />-->
-			<!--				</rich:column>-->
-			<!--			</rich:dataTable>-->
+			<h:panelGrid columns="4">
+				<h:column>
+					<h:commandButton action="#{alumnosListener.guardarAlumno}"
+						value="#{msgs.btnguardar}" rendered="#{alumnosView.modoNuevo}" />
+				</h:column>
+				<h:column>
+					<h:commandButton action="#{alumnosListener.guardarAlumno}"
+						value="#{msgs.btnguardar}"
+						rendered="#{alumnosView.modoModificacion}" />
+				</h:column>
+				<h:column>
+					<h:commandButton action="#{alumnosListener.deleteAlumno}"
+						value="#{msgs.btneliminar}"
+						rendered="#{alumnosView.modoEliminacion}" />
+				</h:column>
+				<h:column>
+					<h:commandButton action="#{alumnosListener.volverListadoAlumnos}"
+						value="#{msgs.btnvolver}" immediate="true" />
+				</h:column>
+			</h:panelGrid>
 		</h:form>
 	</f:view>
 </h:body>

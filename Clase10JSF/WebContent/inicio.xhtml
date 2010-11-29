@@ -9,11 +9,11 @@
 	xmlns:a4j="http://richfaces.org/a4j">
 
 <h:head>
-	<title><h:outputText value="#{msgs.inicio}"/></title>
+	<title><h:outputText value="#{msgs.inicio}" /></title>
 </h:head>
 <h:body>
 	<f:view>
-		<h2><h:outputText value="#{msgs.ejemploinicio}"/></h2>
+		<h2><h:outputText value="#{msgs.ejemploinicio}" /></h2>
 		<h:form>
 			<rich:panel>
 				<div align="center"><h:panelGrid columns="2">
@@ -31,13 +31,10 @@
 					<h:column>
 						<h:outputText value="#{msgs.registrarasistencias}"></h:outputText>
 					</h:column>
-					<h:column>
-						<h:commandButton value="#{msgs.btnsalir}" action="#{alumnosListener.salir}" />
-					</h:column>
-					<h:column>
-					</h:column>
 				</h:panelGrid></div>
 			</rich:panel>
+			<h:commandButton value="#{msgs.btnsalir}"
+				action="#{alumnosListener.salir}" />
 		</h:form>
 	</f:view>
 </h:body>

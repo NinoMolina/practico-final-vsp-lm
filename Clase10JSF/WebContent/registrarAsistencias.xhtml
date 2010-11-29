@@ -52,11 +52,16 @@
 				</h:column>
 			</h:panelGrid></div>
 		</rich:panel>
-
-		<h:commandButton value="#{msgs.btnsalir}" action="salir"
-			immediate="true" />
-		<h:commandButton action="#{asistenciaListener.guardarAsistencia}"
-			value="#{msgs.btnguardar}" />
+		<h:panelGrid columns="2">
+			<h:column>
+				<h:commandButton value="#{msgs.btnvolver}" action="salir"
+					immediate="true" />
+			</h:column>
+			<h:column>
+				<h:commandButton action="#{asistenciaListener.guardarAsistencia}"
+					value="#{msgs.btnguardar}" />
+			</h:column>
+		</h:panelGrid>
 	</h:form>
 </f:view>
 </body>
